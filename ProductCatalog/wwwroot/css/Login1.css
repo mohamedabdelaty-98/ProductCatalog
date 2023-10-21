@@ -1,0 +1,34 @@
+
+    .social-icons {
+        display: flex;
+       /* flex-direction: column;
+        align-items: center;*/
+        justify-content:center;
+    }
+
+    .btn-google {
+        background-color: #4285F4; /* Google Blue */
+    }
+
+    .btn-facebook {
+        background-color: #1877f2; /* Facebook Blue */
+    }
+.userlogin .input-box input:focus,
+.userlogin .input-box input:valid {
+    border-color: #29539b;
+}
+.userlogin .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+}
+.mb-6 {
+    margin-bottom: 10rem !important;
+}
+

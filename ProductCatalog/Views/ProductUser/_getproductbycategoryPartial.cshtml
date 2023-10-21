@@ -1,0 +1,24 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "getproductbycat";
+}
+
+
+<div class="row m-2 justify-content-center">
+   
+    @foreach (Product product in Model)
+    {
+        <div class="card col-lg-5 col-md-5 col-sm-11 m-2 d-flex align-items-center" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@product.category.Name</h6>
+                <p class="card-text">$@product.price</p>
+                <a asp-action="details" asp-controller="ProductUser" asp-route-id="@product.Id" class="btn btn-primary">Show Details</a>
+
+            </div>
+        </div>
+
+    }
+</div>
+
+

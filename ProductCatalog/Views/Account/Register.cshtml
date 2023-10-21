@@ -1,0 +1,60 @@
+﻿@model ProductCatalog.ViewModel.RegisterAcountVm
+
+@{
+    ViewData["Title"] = "Register";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+
+}
+<h1>Register</h1>
+
+<h4>RegisterAcountVm</h4>
+<hr />
+<div class="d-flex justify-content-center ">
+    <div class="container_reg col-7 mt-4 mb-6">
+        <div class="title">Registration</div>
+        <div class="content">
+        <form asp-action="Register">
+                <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
+                <div class="user-details">
+                    <div class="input-box w-100">
+                        <label class="details" asp-for="UserName"></label>
+                        <input asp-for="UserName" placeholder="Enter your user name" required>
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="input-box w-100">
+                        <label class="details" asp-for="Email"></label>
+                        <input asp-for="Email" placeholder="Enter your Email" required>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="input-box w-100">
+                        <label class="details" asp-for="PasswordHash">Password</label>
+                        <input asp-for="PasswordHash" placeholder="Enter your password" required>
+                        <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                    </div>
+                    <div class="input-box w-100">
+                        <label class="details" asp-for="ConfiremPassword">ConfirmPassword</label>
+                        <input asp-for="ConfiremPassword" placeholder="Confirm your password" required>
+                        <span asp-validation-for="ConfiremPassword" class="text-danger"></span>
+                    </div>
+                    <div class="input-box w-100">
+                        <label class="details" asp-for="PhoneNumber"></label>
+                        <input asp-for="PhoneNumber" placeholder="Enter your phone number" required>
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="button w-75 text-center">
+                        <input type="submit" value="Register">
+
+                    </div>
+        </form>
+        </div>
+    </div>
+   
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

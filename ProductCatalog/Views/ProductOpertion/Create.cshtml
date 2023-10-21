@@ -1,0 +1,64 @@
+﻿@model ProductCatalog.Models.Product
+
+@{
+    ViewData["Title"] = "insert";
+    SelectList listcategory = new SelectList(ViewBag.categories, "Id", "Name");
+}
+
+
+
+<h4>Product</h4>
+<hr />
+<div class="row d-flex justify-content-center ">
+    <div class="col-md-5 shadow m-auto p-3">
+        <h5 class="d-flex justify-content-center mt-2">insert</h5>
+        <form asp-action="create" >
+            <div asp-validation-summary="All" class="text-danger"></div>
+           
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control " />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control " />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control " />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control " />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group ">
+                <label asp-for="CategoryId" class="control-label">Categories</label>
+                <select asp-for="CategoryId" class="form-control "
+                        asp-items="listcategory"></select>
+            </div>
+            <div class="form-group d-flex justify-content-center mt-2">
+                <input type="submit" value="Create" class="btn btn-primary w-75" />
+            </div>
+            <div>
+                <a asp-action="getall" class="mt-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

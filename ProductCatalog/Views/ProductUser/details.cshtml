@@ -1,0 +1,15 @@
+﻿@model Product
+<h3>Details About @Model.Name</h3>
+
+<div class="card">
+    <div class="card-header">
+        @Model.Name
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>Price: $@Model.price</p>
+            <p>Available for @Model.Duration Days</p>
+            <footer class="blockquote-footer">@Model.category.Name</footer>
+        </blockquote>
+    </div>
+</div>

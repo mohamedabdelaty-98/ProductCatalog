@@ -1,0 +1,33 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/Product.css"/>
+}
+<partial name="_NabvbarPartial"></partial>
+<div class="row m-2 justify-content-center" id="products">
+
+@foreach(Product product in Model)
+{
+
+            <div class="card col-lg-5 col-md-5 col-sm-11 m-2 d-flex align-items-center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@product.Name</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@product.category.Name</h6>
+            <p class="card-text">$@product.price</p>
+                <a asp-action="details" asp-controller="ProductUser" asp-route-id="@product.Id" class="btn btn-primary">Show Details</a>
+           
+        </div>
+    </div>
+        
+}
+</div>
+<div id="productbycat"></div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/Product_ajax.js"></script>
+}
+
+
+

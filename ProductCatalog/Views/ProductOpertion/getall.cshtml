@@ -1,0 +1,38 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "getall";
+}
+<a asp-action="create" asp-controller="ProductOpertion"  class="btn mx-3 mt-2 mb-2" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Add new product</a>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <th>Name</th>
+    <th>CreatedByUserId</th>
+    <th>CreationDate</th>
+    <th>StartDate</th>
+    <th>Duration</th>
+    <th>price</th>
+    <th>Name of Category</th>
+    <th></th>
+    <th></th>
+    </thead>
+    @foreach (Product item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.CreatedByUserId</td>
+            <td>@item.CreationDate</td>
+            <td>@item.StartDate.Date</td>
+            <td>@item.Duration</td>
+            <td>@item.price</td>
+            <td>@item.category.Name</td>
+            <td><a asp-action="edite" asp-controller="ProductOpertion" asp-route-id="@item.Id">Edit</a></td>
+            <td><a asp-action="delete" asp-controller="ProductOpertion" asp-route-id="@item.Id">Delete</a></td>
+
+
+
+        </tr>
+    }
+</table>
+
